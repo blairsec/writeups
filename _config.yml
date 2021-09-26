@@ -1,0 +1,11 @@
+name: blairsec writeups
+description: Solutions and recaps for meeting challenges
+meta_description: "Archive of solutions to challenges and lectures by the Montgomery Blair HS Cybersecurity club"
+
+markdown: kramdown
+highlighter: rouge
+logo: false
+paginate: 10
+baseurl: /writeups/
+domain_name: "http://blairsec.mbhs.edu/"
+plugins: [jekyll-paginate]
