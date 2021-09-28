@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/srv.key
+          chmod 600 ~/.ssh/srv.key
+          cat >>~/.ssh/config <<END
+          Host srv
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/srv.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+          bundler-cache: true
+
+      - name: Build site
+        run: bundle exec jekyll build
+
+      - name: Copy site to deploy
+        run: rsync -r ./_site/ srv:/var/www/html/writeups

