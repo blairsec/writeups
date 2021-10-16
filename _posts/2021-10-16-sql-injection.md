@@ -10,11 +10,11 @@ On 10/14, we focused on SQL injections which allow us to access data in database
 Here are the links to the [lecture](https://docs.google.com/presentation/d/1-YCCR9w2vvmVrWR7EjksmqShnKNzRlXWXRJRPzq6dFA/edit?usp=sharing) and the [challenges](https://xn--158h.blairsec.mbhs.edu/login)!
 
 List of Flags
-1. [Creating an Error](#Flag-1-Creating-an-Error)
-2. [Bypassing filters](#Flag-2-Bypassing-Filters)
-3. [Accessing a different column](#Flag-3-Accessing-Different-Columns)
-4. [Accessing a different table](#Flag-4-Accessing-Different-Tables)
-5. [Finding the admin password](#Flag-5-Finding-the-Admin-Password)
+1. [Creating an Error](#flag-1-creating-an-error)
+2. [Bypassing filters](#flag-2-bypassing-filters)
+3. [Accessing a different column](#flag-3-accessing-different-columns)
+4. [Accessing a different table](#flag-4-accessing-different-tables)
+5. [Finding the admin password](#flag-5-finding-the-admin-password)
 
 #### Intro to SQL and Databases
 Database are used to to store, change, add and retrieve a lot of data efficiently. They can be used to store usernames and passwords or store books found in a library along with whether they have been checked out.
