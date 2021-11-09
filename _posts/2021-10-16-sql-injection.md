@@ -17,14 +17,14 @@ List of Flags
 5. [Finding the admin password](#flag-5-finding-the-admin-password)
 
 #### Intro to SQL and Databases
-Database are used to to store, change, add and retrieve a lot of data efficiently. They can be used to store usernames and passwords or store books found in a library along with whether they have been checked out.
+Databases are used to store, change, add and retrieve a lot of data efficiently. They can be used to store usernames and passwords or store books found in a library along with whether they have been checked out.
 
 Databases are made up of a few different parts - columns, rows and tables.
  - Column - a group of data of the same type (e.g. height or password)
  - Row - a group of data that belong to one person, situation, etc. (e.g. a username and a password)
  - Table - a collection of rows and columns
 
-Ok, so we have a way of storing data using database, but how do we access data in a database? This is where SQL comes in.
+Ok, so we have a way of storing data using a database, but how do we access data in a database? This is where SQL comes in.
 
 SQL (Structured Query Language) provides us with the ability to edit and retrieve data from databases!
 
@@ -113,7 +113,7 @@ This adds a query which retrieves the sql column from the sqlite_master table. T
 Output: 
 ![result.png](/writeups/assets/images/10-16-21/result.png)
 
-See the line with `CREATE TABLE Factors`? The columns are listed in the parenthesises with a type. One of the columns is called `supersecret587213722`. Let's try making a query which retrieves data in this column.
+See the line with `CREATE TABLE Factors`? The columns are listed in the parentheses with a type. One of the columns is called `supersecret587213722`. Let's try making a query which retrieves data in this column.
 
 Input: 
 ```sql
@@ -144,7 +144,7 @@ The hint for the final flag is `your flag's in the admin password >:)`.
 
 The admin password isn't stored in this database, so we are going to have to go back to the login page and log in as the admin.
 
-A helpful keyword for getting this flag is `LIKE`. `LIKE` allows you to retrieve data which you only know part of. For example, you might want to get an row who's password starts with an 'a'. We can represent this in our query through `password LIKE 'a%'`. The % represents any combination of characters.
+A helpful keyword for getting this flag is `LIKE`. `LIKE` allows you to retrieve data which you only know part of. For example, you might want to get a row who's password starts with an 'a'. We can represent this in our query through `password LIKE 'a%'`. The % represents any combination of characters.
 
 Try `admin' AND password LIKE 'a%' -- j` in the username field with any character in the password field.
 
@@ -205,7 +205,7 @@ end
 IO.puts(Sqli.find_password(""))
 ```
 
-If you are more familar with Python, here is the script that Jason wrote.
+If you are more familiar with Python, here is the script that Jason wrote.
 ```python
 import requests, string, json
 current = "flag{"

@@ -45,7 +45,7 @@ Your goal is to use this file to leak the full source code.
 ```
 
 #### flag 2: double traversal
-Now it seems our goal is to get a file that all node.js project has. From some googling or background experience we know that we need a `package.json`. But `filename=../package.json` returns nothing. Let's try to go up one directory, with `../../package.json`.
+Now it seems our goal is to get a file that all node.js projects have. From some googling or background experience we know that we need a `package.json`. But `filename=../package.json` returns nothing. Let's try to go up one directory, with `../../package.json`.
 
 But wait, in the source code it detects if we have 2 `../`s, and replaces them all with an empty string (deletes them out of the string):
 
