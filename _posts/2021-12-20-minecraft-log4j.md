@@ -5,7 +5,7 @@ date:   2021-12-20
 categories: linux
 ---
 
-Last meeting we went over an overview of vulnerability research, the recent log4j vulnerability, and finally some more Linux stuff.
+Last meeting we went over an overview of vulnerability research, the recent log4j vulnerability, and finally some more Linux stuff. [Lecture here](https://docs.google.com/presentation/d/1zs27obk0Jh3cFwKoTMSiTXPrv8aRMWUKbQ1BLbzpr14/edit).
 
 More interestingly though, instead of doing challenges individually we set up a live Minecraft 1.8 server that was vulnerable, and we "took over" the blairsec server as `minecraftsteve123`. These are the instructions to replicate what we did, if you want to try yourself.
 
